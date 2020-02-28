@@ -9,7 +9,7 @@ import { withStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Navbar from "./commons/Navbar";
 import SideBar from "./commons/SideBar";
-// import Dashboard from "./pages/Dashboard/Dashboard";
+import Dashboard from "./pages/Dashboard/";
 // import ServiceB from "./components/pages/ServiceB/ServiceB";
 // import SimpleTable from "./components/pages/Users/Users";
 
@@ -56,7 +56,7 @@ function App(props) {
                 <SideBar open={open} close={handleDrawerClose} />
                 <main className={classes.content}>
                     <div className={classes.appBarSpacer} />
-                    {/* <Route path="/dashboard/" component={Dashboard} /> */}
+                     <Route path="/dashboard/" component={Dashboard} />
                     {/* <Route path="/nested/" component={ServiceB} />
           <Route path="/list/" component={SimpleTable} /> */}
                 </main>

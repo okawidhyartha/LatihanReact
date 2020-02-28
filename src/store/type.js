@@ -1,0 +1,4 @@
+const UPDATE_NAME = "UPDATE_NAME";
+const GET_POSTS = "GET_POSTS";
+
+export {UPDATE_NAME, GET_POSTS};

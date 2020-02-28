@@ -55,8 +55,8 @@ export default function Login() {
 
     const [loading, setLoading] = useState(false);
     const [fakeAccount] = useState({
-        username: "bagassatria.n",
-        password: "12345"
+        username: "apa",
+        password: "apa"
     });
     const [formValue, setFormValue] = useState({
         username: "",
