@@ -1,9 +1,9 @@
-import {GET_POSTS} from "../type";
+import {GET_USERS} from "../type";
 
-export const posts = (state = {}, action) => {
+export const users = (state = {}, action) => {
     const {type, payload} = action;
     switch (type) {
-        case GET_POSTS:
+        case GET_USERS:
             return payload;
         default:
             return state;

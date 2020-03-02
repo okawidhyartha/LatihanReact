@@ -1,4 +1,4 @@
 import {name} from "./name";
-import {posts} from "./post";
+import {users} from "./users";
 
-export {name, posts};
+export {name, users};

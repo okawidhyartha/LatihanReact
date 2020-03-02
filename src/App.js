@@ -1,5 +1,3 @@
-// App.js
-
 import React, { Fragment, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Route } from "react-router-dom";
@@ -9,9 +7,11 @@ import { withStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Navbar from "./commons/Navbar";
 import SideBar from "./commons/SideBar";
-import Dashboard from "./pages/Dashboard/";
+import Dashboard from "./pages/Dashboard";
 // import ServiceB from "./components/pages/ServiceB/ServiceB";
-// import SimpleTable from "./components/pages/Users/Users";
+import Users from "./pages/Users";
+import {getUsers} from "./api/users";
+import { getUsersAction } from "./store/actions/users";
 
 // import { getPosts } from "./store/actions/posts";
 // import { getUsers } from "./api/users";
@@ -31,15 +31,34 @@ const styles = theme => ({
     appBarSpacer: theme.mixins.toolbar
 });
 
+
+// useEffect(() => {
+//   getUsers().then(res => {
+//       console.log("test",res);
+//       dispatch(getUsersAction(res));
+//   });
+// }, [refetch, dispatch]);
+
 function App(props) {
     const { classes, dispatch } = props;
 
     const [open, setOpen] = useState(true);
-    // const [refetch] = useState(1);
+    const [refetch, setRefetch] = useState(0);
+    const [surveyModusData, setSurveyModusData] = useState({
+        labels: [],
+        datasets: []
+    });
 
     // useEffect(() => {
-    //   getUsers().then(result => dispatch(getPosts(result)));
+    //   getUsers().then(res => {
+    //       console.log("testhh",res);
+    //       dispatch(getUsersAction(res));
+    //   })
     // }, [refetch, dispatch]);
+
+    useEffect(() => {
+        getUsers().then(result => dispatch(getUsersAction(result)));
+    }, [refetch, dispatch]);
 
     function handleDrawerOpen() {
         setOpen(true);
@@ -56,9 +75,9 @@ function App(props) {
                 <SideBar open={open} close={handleDrawerClose} />
                 <main className={classes.content}>
                     <div className={classes.appBarSpacer} />
-                     <Route path="/dashboard/" component={Dashboard} />
-                    {/* <Route path="/nested/" component={ServiceB} />
-          <Route path="/list/" component={SimpleTable} /> */}
+                    <Route path="/dashboard/" component={Dashboard} />
+                    {/* <Route path="/nested/" component={ServiceB} /> */}
+                    <Route path="/list/" component={Users} />
                 </main>
             </div>
         </Fragment>

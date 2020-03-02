@@ -1,4 +1,4 @@
 const UPDATE_NAME = "UPDATE_NAME";
-const GET_POSTS = "GET_POSTS";
+const GET_USERS = "GET_USERS";
 
-export {UPDATE_NAME, GET_POSTS};
+export {UPDATE_NAME, GET_USERS};
